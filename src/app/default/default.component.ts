@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed, effect } from '@angular/core';
 
 @Component({
   selector: 'app-default',
@@ -10,6 +10,11 @@ import { Component, signal } from '@angular/core';
 export class DefaultComponent {
   actions = signal<string[]>([]);
   counter = signal(0);
+  doubleCounter = computed(() => this.counter() * 2)
+
+  constructor() {
+    effect(() => console.log(this.counter()));
+  }
 
   increment() {
     // this.counter.update((oldCounter) => oldCounter + 1);
