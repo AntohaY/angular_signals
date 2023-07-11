@@ -1,0 +1,15 @@
+<h1>Default (Automatic Change Detection)</h1>
+
+<div id="counter">
+  <!-- To display signal in a template we need to call it as a function here -->
+  <p id="counter-output">Counter: {{ counter() }}</p>
+  <div id="counter-btns">
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="increment()">Increment</button>
+  </div>
+</div>
+
+<h2>Action Log</h2>
+<ol id="log">
+  <li *ngFor="let action of actions()">{{ action }}</li>
+</ol>
